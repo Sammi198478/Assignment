@@ -1,11 +1,9 @@
 import React from 'react'
 
-const NewIncident = () => {
+function NewIncident() {
   return (
-    <>
-    <h1>This is New Incident page</h1>
-    </>
+    <div>NewIncident</div>
   )
 }
 
-export default NewIncident
+export default NewIncident;
