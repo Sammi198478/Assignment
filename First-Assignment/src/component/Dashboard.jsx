@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -10,23 +11,25 @@ const IncidentsItems = [
   { id: 6, img: "img/Rectangle 42010 (4).png", name: "Whitechapel Rd.", aria: "Tulare County, Los Angeles, CA 23415", price: "$1,456,654.00" },
 ];
 
-function Incidents() {
 
-  const [data, setData] = useState([]);
-  const [collection, setCollection] = useState([]);
 
-  useEffect(() => {
-    setData(IncidentsItems);
-    setCollection([...new Set(IncidentsItems.map((item) => item.DataTransferItemList))]);
-  }, []);
+function Dashboard() {
 
-  const gallery_filter = (itemData) => {
-    const filterData = IncidentsItems.filter((item) => item.name === itemData);
-    setData(filterData);
-  };
-
+    const [data, setData] = useState([]);
+    const [collection, setCollection] = useState([]);
+  
+    useEffect(() => {
+      setData(IncidentsItems);
+      setCollection([...new Set(IncidentsItems.map((item) => item.DataTransferItemList))]);
+    }, []);
+  
+    const gallery_filter = (itemData) => {
+      const filterData = IncidentsItems.filter((item) => item.name === itemData);
+      setData(filterData);
+    };
   return (
-   <div className="App mt-16 sm:mt-20 lg:mt-24 mb-10">
+    <>
+       <div className="App mt-16 sm:mt-20 lg:mt-24">
   <div className="galleryWrapper flex flex-col lg:flex-row">
     <div className="filterItem mb-4 lg:mb-0 lg:mr-6">
       <ul className="flex flex-wrap gap-2">
@@ -59,8 +62,9 @@ function Incidents() {
     </div>
   </div>
 </div>
+    
+    </>
+  )
+}
 
-  );
-};
-
-export default Incidents;
+export default Dashboard
